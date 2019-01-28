@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dialogflow-fulfillment": "^0.6.1",
     "express": "^4.16.4"
   }
 }
