@@ -1,14 +1,17 @@
 {
-  "name": "dialogflow",
+  "name": "react_and_nest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node ./src/app.js"
+  "private": true,
+  "workspaces": {
+    "packages": ["client", "server"],
+    "nohoist": [
+      "**/react-scripts",
+      "**/jest"
+    ]
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4"
+  "scripts": {
+    "start:server": "cd server && yarn start",
+    "start:client": "cd client && yarn start"
   }
 }
