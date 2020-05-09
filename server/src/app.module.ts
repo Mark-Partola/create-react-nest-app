@@ -10,19 +10,26 @@ import { Sequelize } from 'sequelize';
 })
 export class AppModule {}
 
-const sequelize = new Sequelize('hive_db', 'hive-db-user', 'hive-db-pass', {
-  dialect: 'postgres',
-  host: 'database',
-});
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
+  {
+    dialect: 'postgres',
+    host: 'database',
+  },
+);
 
 // To check connection
 (async () => {
-  const err = await sequelize.authenticate().then(console.log);
+  const err = await sequelize.authenticate();
   if (err) {
     return console.log(err);
   }
 
+  console.log('Connection established successfully');
+
   const users = await sequelize.query('SELECT * FROM users');
 
-  console.log("Users: ", users);
+  console.log('Users: ', users);
 })();
