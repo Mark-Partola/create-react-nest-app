@@ -1,15 +1,24 @@
-# react-and-nest-yarn-monorepo
+# create-react-nest-app
 
-Template for `create-react-app` and `nestjs` with yarn namespaces.
 ```
-> yarn # installs deps for all nested packages
+$ git clone https://github.com/Mark-Partola/create-react-nest-app.git
+$ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
 ```
+
+Boilerplate for starting project without preparation.
+
+To run:
 ```
-> yarn start:client
+$ docker-compose up
 ```
-```
-> yarn start:server
-```
+
+Includes:
+ - React
+ - NestJS
+ - Yarn workspaces
+ - Dockerized Server
+ - PostgreSQL with volume
+
 
 References:
 
@@ -22,3 +31,12 @@ https://nestjs.com/
 
  - Create react app
 https://github.com/facebook/create-react-app
+
+- Docker
+https://www.docker.com/
+
+- Docker compose
+https://docs.docker.com/compose/
+
+- PostgreSQL
+https://www.postgresql.org/
