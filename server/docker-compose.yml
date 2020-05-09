@@ -1,7 +1,7 @@
 version: '3.7'
 services:
-  hive_server:
-    container_name: hive_server
+  web_server:
+    container_name: web_server
     build: .
     command: sh -c "yarn start:dev"
     ports:
@@ -9,22 +9,22 @@ services:
     volumes:
       - .:/usr/src/app
     depends_on:
-      - hive_postgres
+      - web_postgres
     links:
-      - 'hive_postgres:database'
+      - 'web_postgres:database'
     environment:
-      DB_NAME: hive_db
-      DB_USER: hive-db-user
-      DB_PASS: hive-db-pass
+      DB_NAME: web_db
+      DB_USER: web-db-user
+      DB_PASS: web-db-pass
 
-  hive_postgres:
-    container_name: hive_postgres
+  web_postgres:
+    container_name: web_postgres
     image: postgres:12.2
     ports:
       - '5432:5432'
     volumes:
       - ./database-volume:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: hive_db
-      POSTGRES_USER: hive-db-user
-      POSTGRES_PASSWORD: hive-db-pass
+      POSTGRES_DB: web_db
+      POSTGRES_USER: web-db-user
+      POSTGRES_PASSWORD: web-db-pass
